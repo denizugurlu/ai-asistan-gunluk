@@ -3,10 +3,6 @@ import Config from 'react-native-config';
 const API_URL = Config.HF_API_URL;
 const API_TOKEN = `Bearer ${Config.HF_API_TOKEN}`;
 
-// Geçici: env değerleri yüklendi mi kontrol
-console.log('HF_API_URL:', API_URL);
-console.log('HF_API_TOKEN exists:', Boolean(Config.HF_API_TOKEN));
-
 //rastgele mesajların bulunduğu mesaj havuzu
 const MESAJ_HAVUZU = {
   POSITIVE: [
@@ -125,7 +121,6 @@ export const duyguAnaliziYap = async metin => {
   }
 };
 
-// Basit ağ testi: httpbin ile GET denemesi
 export const agTesti = async () => {
   try {
     const res = await fetch('https://httpbin.org/get');

@@ -35,6 +35,35 @@ Uygulama başlatma  = Önce Metro Bundler başlamalı : npm start
 		  Yeni bir terminal açıp emülatöre yüklenmesi = npm run android
 
 
+--- Ortam Değişkenleri (Env) ---
+
+- Gizli anahtarları README içine koymayın. Bunun yerine bir şablon dosya paylaşın ve gerçek değerleri yerel `.env` dosyasında tutun.
+
+1) Proje kökünde `.env` oluşturun:
+
+```
+HF_API_URL=https://router.huggingface.co/hf-inference/models/distilbert/distilbert-base-uncased-finetuned-sst-2-english
+HF_API_TOKEN=hf_...gercek_token
+```
+
+2) Android derlemesi env dosyasını okur (`react-native-config`). Değişiklikten sonra temiz başlatın:
+
+```powershell
+taskkill /F /IM node.exe
+npm start
+npm run android
+```
+
+3) Şablon dosyası olarak `.env.example` kullanın (commit edilebilir):
+
+```
+HF_API_URL=https://router.huggingface.co/hf-inference/models/distilbert/distilbert-base-uncased-finetuned-sst-2-english
+HF_API_TOKEN=hf_xxx_replace_with_your_token
+```
+
+Not: Token’ı istemciye dağıtmak güvenli değildir. Önerilen mimari: Token’ı sadece backend’de tutup mobil uygulamadan backend’e istek atmak.
+
+
 
 --- Android SDK ve Gradle Hataları ---
 
